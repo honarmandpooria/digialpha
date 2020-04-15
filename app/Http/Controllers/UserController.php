@@ -2,40 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\UsersResource;
+use App\Http\Resources\UsersWithAlbumsResource;
+use App\Http\Resources\UsersWithPostsResource;
+use App\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
+
+    /*
+     * DIGI ALPHA TEST
+     * These 3 functions will return api format of requested features with 202 responses using laravel resources.
      *
-     * @return \Illuminate\Http\Response
-     */
+     *
+     *
+     * */
+
     public function index()
     {
-        //
+        $users = User::latest()->get();
+        return UsersResource::collection($users);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function usersWithPosts(Request $request)
+
+    public function usersWithPosts()
     {
-        //
+        $users = User::latest()->get();
+        return UsersWithPostsResource::collection($users);
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function usersWithAlbums($id)
+    public function usersWithAlbums()
     {
-        //
+        $users = User::latest()->get();
+        return UsersWithAlbumsResource::collection($users);
     }
 
 
