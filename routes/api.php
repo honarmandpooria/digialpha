@@ -30,3 +30,9 @@ Route::get('/users-with-posts', 'UserController@usersWithAlbums');
 
 
 
+//SAVE FROM JSON PARSER
+//
+//
+// =====>
+Route::post('/save-users', 'SaveDataFromJsonParserController@saveUsers');
+Route::post('/save-posts', 'SaveDataFromJsonParserController@savePosts');
