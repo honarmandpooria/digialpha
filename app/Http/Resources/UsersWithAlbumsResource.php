@@ -4,7 +4,7 @@ namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class UsersWithPostsResource extends JsonResource
+class UsersWithAlbumsResource extends JsonResource
 {
     /**
      * Transform the resource into an array.
@@ -18,8 +18,8 @@ class UsersWithPostsResource extends JsonResource
             "name" => $this->name,
             "username" => $this->username,
 
-            /*All POSTS belong to this user*/
-            "albums" => PostResource::collection($this->posts),
+            /*ALBUMS WITH PHOTOS belong to this user*/
+            "albums" => AlbumWithPhotosResource::collection($this->albums),
         ];
     }
 }
