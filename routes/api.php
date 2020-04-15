@@ -17,3 +17,16 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+
+// DIGI ALPHA REST API ROUTES
+//
+//
+//  ====>
+Route::get('/users', 'UserController@index');
+Route::get('/users-with-posts', 'UserController@usersWithPosts');
+Route::get('/users-with-posts', 'UserController@usersWithAlbums');
+
+
+
